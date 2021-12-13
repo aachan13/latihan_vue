@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1 Vue</title>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <!-- vue 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+</head>
+<body>
+    <div id="app">
+        {{ message }} {{ obj.nilai }}
+    </div>
+
+    
+    <script>
+        let obj = {
+            nilai: 50,
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                obj
+            },
+            beforeCreate: fnBeforeCreate,
+			created: fnCreated,
+			beforeMount: fnBeforeMount,
+			mounted: fnMounted,
+			beforeUpdate: fnBeforeUpdate,
+			updated: fnUpdated,
+			beforeDestroy: fnBeforeDestroy,
+			destroyed: fnDestroyed
+        })
+		
+		setTimeout(() => {
+			obj.nilai = 200
+		}, 1000)
+		
+		function fnBeforeCreate(){
+			console.log('beforeCreate jalan..');
+		}
+		function fnCreated(){
+			console.log('created jalan..');
+		}
+		function fnBeforeMount(){
+			console.log('before mounted jalan..');
+		}
+		function fnMounted(){
+			console.log('mounted jalan..');
+		}
+		function fnBeforeUpdate(){
+			console.log('before update jalan...');
+		}
+		function fnUpdated(){
+			console.log('updated jalan');
+		}
+		function fnBeforeDestroy(){
+			console.log('before destroy jalan..');
+		}
+		function fnDestroyed(){
+			console.log('destroyed jalan..');
+		}
+    </script>
+</body>
+</html>

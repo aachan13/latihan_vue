@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 9 Vue</title>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <!-- vue 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<body>
+	<!-- vue event handling  -->
+	<!-- short hand v-on: -> @click -->
+    <div id="app">
+        <button type="button" v-on:click="showalert()">Klik disini</button>
+        <button type="button" @click="showConfirm('tes')">Klik disini lagi</button>
+		
+    </div>
+	
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Selamat Datang'
+            },
+			methods:{
+				showalert: function(){
+					alert('hello guys,' + this.message)
+				},
+				showConfirm: function(messageNya){
+					confirm(messageNya);
+				}
+			}
+        })
+    </script>
+</body>
+</html>

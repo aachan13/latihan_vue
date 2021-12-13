@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2 Vue</title>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <!-- vue 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+</head>
+<body>
+    <div id="app">
+        {{ message }} {{ obj.nilai }}
+
+        <h2>Hello</h2>
+		<div id="tes" v-html="isiHTML">
+			
+		</div>
+		<br>
+		<input type="text" :value="isiInput" />
+    </div>
+
+    
+    <script>
+        let obj = {
+            nilai: 50,
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {
+				obj,
+                message: 'Hello Vue!',
+                isiInput: 'tes input',
+				isiHTML: '<b>tes html aja</b>'
+            },
+        })
+    </script>
+</body>
+</html>

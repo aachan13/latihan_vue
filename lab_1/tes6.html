@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6 Vue</title>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <!-- vue 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+</head>
+<body>
+	<!-- vue watch  -->
+    <div id="app">
+        {{ message }} {{ obj.nilai }}
+		
+		<div style="margin-top: 20px;">
+			<input type="text" v-model="message" />
+			<p>{{ messageold }}</p>
+		</div>
+    </div>
+	
+
+    
+    <script>
+        let obj = {
+            nilai: 50,
+			nilai2: 5,
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: '',
+				messageold: '',
+                obj,
+            },
+			watch: {
+				message: function(baru, lama){
+						this.messageold = "Proses: " + baru + " ------- " + lama;
+						
+						// setTimeout(() => {
+						// 	this.messageold = 'sukses'
+						// }, 2000)
+					}
+				}
+        })
+    </script>
+</body>
+</html>

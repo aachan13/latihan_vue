@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3 Vue</title>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <!-- vue 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+</head>
+<body>
+	<!-- vue directive -->
+    <div id="app">
+        {{ message }} {{ obj.nilai }}
+		<br>
+		<input type="button" v-bind:[attr]="isiValue" />
+		
+		<div v-show="tampil">
+			<h3>Nilai tampil: {{ obj.nilai }}</h3>
+		</div>
+		
+		<div v-show="!tampil">
+			<h3>Nilai tampil: 0</h3>
+		</div>
+    </div>
+	
+
+    
+    <script>
+        let obj = {
+            nilai: 50,
+        }
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                obj,
+				attr: 'value',
+				isiValue: 'klik dong!',
+				tampil: true
+            },
+        })
+    </script>
+</body>
+</html>

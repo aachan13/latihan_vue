@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1 Vue</title>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <!-- vue 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+	<!-- vue component with props and global state -->
+    <div id="app" class="container p-5">
+		<div v-for="peg in pegawai" class="my-3">
+			<terima-input :nama="peg.nama" :kota="peg.alamat"></terima-input>
+			
+		</div>
+    </div>
+
+    
+    <script>
+		let store = {
+			state: {
+				nama: "Hello World"
+			}
+		}
+	
+		Vue.component('terima-input', {
+			props: ['nama', 'kota'],
+			data: function(){
+				return {
+					globaldata: store.state
+				}
+			},
+			template: `<div>
+				<input v-model="globaldata.nama" />
+				<p>
+					{{ globaldata.nama }}
+				 </p>
+			</div>`
+		})
+	
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+				pegawai: [
+				    {
+				        nama: "Fadhil",
+				        alamat: "Jalan Balikpapan",
+				        no_telp: "012124124124"
+				    },
+				    {
+				        nama: "Bagus",
+				        alamat: "Jalan Bontang",
+				        no_telp: "081241241241"
+				    },
+				    {
+				        nama: "Rivan",
+				        alamat: "Jalan Samarinda",
+				        no_telp: "0912321414213"
+				    },
+				    {
+				        nama: "Faizal",
+				        alamat: "Jalan Yogyakarta",
+				        no_telp: "0312421414124"
+				    },
+				]
+            },
+        })
+    </script>
+</body>
+</html>
